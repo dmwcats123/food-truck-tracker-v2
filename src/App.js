@@ -1,23 +1,18 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-
+import AddressForm from './components/AddressForm';
+import Map from './components/Map';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Welcome to the food truck tracker</h1>
+      <div id="form-description-container">        
+        <AddressForm/>
+        <div className = "even-column" id = "description"> Enter an address in the form on the left, <br/> and the map will pan to the nearby area. <br/> The map shows all food trucks with a <br/> registered  permit in San Francisco</div>
+      </div>
+      <div id ="app-map-container">
+        <Map />
+      </div>
     </div>
   );
 }
