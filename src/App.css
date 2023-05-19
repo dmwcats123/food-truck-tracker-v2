@@ -1,5 +1,20 @@
+#form-description-container {
+  display:flex;
+  flex-direction: row;
+}
+
+.even-column {
+  flex-basis: 100%;
+  padding: 1em;
+}
 
 #app-map-container {
   display:flex;
   justify-content: center;
+}
+
+#description {
+  display:flex;
+  justify-content: center;
+  align-items: center;
 }

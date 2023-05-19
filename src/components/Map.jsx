@@ -1,15 +1,17 @@
 import { MapContainer, TileLayer, useMap, Marker, Popup} from 'react-leaflet'
+import L from 'leaflet'
 import icon from '../util/icon.js'
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import './Map.css';
 
-function Map() {
+const Map = ({coordinates}) => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error,setError] = useState(null);
     const [markers, setMarkers] = useState([])
+    const mapRef = useRef(null);
 
     useEffect(() =>{
 
@@ -30,6 +32,7 @@ function Map() {
             }
         };
         fetchData();
+        
         if(data) {
             const newMarkers = data.map(({objectid, applicant, latitude, longitude, fooditems, facilitytype}) => {
                 if( facilitytype == 'Truck') {
@@ -46,10 +49,14 @@ function Map() {
             setMarkers(newMarkers)
         }
 
-    }, [data]);
+        if (mapRef.current && coordinates) {
+            mapRef.current.setView(L.latLng(coordinates.latitude, coordinates.longitude), 15);
+          }
+
+    }, [data, coordinates]);
 
     return (
-        <MapContainer className = "map-container" center={[37.7749, -122.4194]} zoom={13} scrollWheelZoom={false}>
+        <MapContainer ref = {mapRef} className = "map-container" center={[coordinates.latitude, coordinates.longitude]} zoom={1} zoomControl = {false} dragging = {false} scrollWheelZoom={false}>
         <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
