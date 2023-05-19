@@ -1,6 +1,6 @@
 @import '~leaflet/dist/leaflet.css';
 
 .map-container {
-    height:50vh;
-    width: 70vh;
+    height:90vh;
+    width: 100vw;
 }
