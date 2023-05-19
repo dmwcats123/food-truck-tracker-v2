@@ -12,16 +12,15 @@ function Map() {
 
         const fetchData = async() => {
             try {
-                const url = "https://data.sfgov.org/resource/rqzj-sfat";
+                const url = "https://data.sfgov.org/resource/rqzj-sfat.json";
                 const appToken = "C8iy1b7Cj36FiX5zkn58oocHY";
                 const response = await fetch(url, {
                     headers: {
                         Authorization: `Bearer ${appToken}`
                     }
                 });
-                
                 const jsonData = await response.json();
-                
+
             } catch(error) {
                 setError(error);
                 setLoading(false);
