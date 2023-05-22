@@ -4,14 +4,28 @@ form {
     align-items: center;
   }
   
-  label, input, select {
-    width: 100%;
+  label, select {
+    width: 40%;
     font-size: small;
-    box-sizing: border-box;
     margin:0.1vh;
-    border-radius: 5px;
   }
   
   input {
-    border: 1px solid grey;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #dcdcdc;
+    background-color: #586e75;
+    color: #dcdcdc;
+    margin: .5px;
+  }
+
+  button {
+    align-self: flex-end;
+    margin-right: 30%;
+    width: 10%;
+    border-radius: 5px;
+    border: 1px solid #dcdcdc;
+    background-color: #586e75;
+    color: #dcdcdc;
   }

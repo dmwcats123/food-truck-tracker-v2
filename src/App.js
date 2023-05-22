@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>San Francisco Food Truck Tracker</h1>
+      <h1 id = "title">Food Truck Tracker</h1>
       <div id="form-description-container">        
         <AddressForm handleCoordinateChange={handleCoordinateChange}/>
         <div className = "even-column" id = "description"> Enter coodinates in the form on the left, <br/> and the map will pan to the nearby area. <br/> The map shows all food trucks with a <br/> registered  permit in San Francisco</div>
